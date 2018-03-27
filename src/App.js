@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Home from './Home';
 import Sobre from './Sobre';
+import Produtos from './Produtos';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
           <div className="container">
             <Route exact path="/" component={Home}/>
             <Route exact path="/sobre" component={Sobre} />
+            <Route path="/produtos" component={Produtos} />
           </div>
         </div>
       </Router>
