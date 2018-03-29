@@ -18,8 +18,8 @@
   ],
   "categorias": [
     {
-      "categoria": "Limpeza",
-      "id": 1
+      "id": 1,
+      "categoria": "Limpeza4"
     },
     {
       "categoria": "Alimentos",
@@ -28,6 +28,10 @@
     {
       "categoria": "Utilidades",
       "id": 3
+    },
+    {
+      "id": 4,
+      "categoria": "asdfasdfas45w534"
     }
   ]
 }
