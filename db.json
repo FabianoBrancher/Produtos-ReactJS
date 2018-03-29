@@ -18,36 +18,16 @@
   ],
   "categorias": [
     {
-      "id": 1,
-      "categoria": "Limpeza"
+      "categoria": "Limpeza",
+      "id": 1
     },
     {
-      "id": 2,
-      "categoria": "Alimentos"
+      "categoria": "Alimentos",
+      "id": 2
     },
     {
-      "id": 3,
-      "categoria": "Utilidades"
-    },
-    {
-      "categoria": "teste",
-      "id": 4
-    },
-    {
-      "categoria": "outra categoria",
-      "id": 5
-    },
-    {
-      "categoria": "opa",
-      "id": 6
-    },
-    {
-      "categoria": "teste",
-      "id": 7
-    },
-    {
-      "categoria": "caralho",
-      "id": 8
+      "categoria": "Utilidades",
+      "id": 3
     }
   ]
 }

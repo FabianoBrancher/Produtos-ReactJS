@@ -12,6 +12,7 @@ class Produtos extends Component {
         }
         this.handleNewCategoria = this.handleNewCategoria.bind(this);
         this.loadCategorias = this.loadCategorias.bind(this);
+        this.renderCategoria = this.renderCategoria.bind(this);
     };
     loadCategorias() {
         // buscar as categorias
@@ -23,6 +24,12 @@ class Produtos extends Component {
                     });
                 });
     };
+    removeCategoria(categoria) {
+        console.log('Removendo categoria:', categoria.categoria);
+        axios
+            .delete('http://localhost:3001/categorias/'+categoria.id)
+            .then((res) => this.loadCategorias() );
+    };
     componentDidMount() {
         this.loadCategorias();
     };
@@ -31,7 +38,11 @@ class Produtos extends Component {
     renderCategoria(cat) {
         return (
             <li key={cat.id}>
+                <button className=" btn btn-sm" onClick={() => this.removeCategoria(cat)}>
+                    <span className="glyphicon glyphicon-remove"> </span>
+                </button>
                 <Link to={`/produtos/categoria/${cat.id}`} >{cat.categoria}</Link>
+
             </li>
         )
     };
@@ -57,9 +68,10 @@ class Produtos extends Component {
                     <ul>
                         {categorias.map(this.renderCategoria)} 
                     </ul>
-                    <div className="well">
+                    <div className="well well-sm">
                         <input onKeyUp={this.handleNewCategoria}
-                               type="text" 
+                               type="text"
+                               className="form-control"
                                ref="categoria" 
                                placeholder="Nova categoria" />
                     </div>
