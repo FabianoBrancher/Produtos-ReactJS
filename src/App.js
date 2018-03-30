@@ -9,19 +9,28 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    // Binds Categoria
     this.loadCategorias = this.loadCategorias.bind(this);
     this.removeCategoria = this.removeCategoria.bind(this);
     this.createCategoria = this.createCategoria.bind(this);
     this.editCategoria = this.editCategoria.bind(this);
+    this.readCategoria = this.readCategoria.bind(this);
+
+    // Binds Produto
+    this.createProduto = this.createProduto.bind(this);
+    this.loadProdutos = this.loadProdutos.bind(this);
 
     this.state = {
-      categorias: []
-    }
+      categorias: [],
+      categoria: {},
+      produtos: []
+    };
+
   };
 
   loadCategorias() {
     this.props.api.loadCategorias()
-      .then(res => {
+      .then((res) => {
               this.setState({
                   categorias: res.data
               });
@@ -41,6 +50,28 @@ class App extends Component {
   editCategoria(categoria) {
     this.props.api.editCategoria(categoria)
       .then((res) => this.loadCategorias());
+  };
+
+  createProduto(produto) {
+    return this.props.api.createProduto(produto);
+  };
+
+  loadProdutos(categoria) {
+    this.props.api.loadProdutos(categoria)
+        .then((res) => {
+            this.setState({
+                produtos: res.data
+            });
+        });
+  };
+
+  readCategoria(id) {
+    this.props.api.readCategoria(id)
+        .then((res) => {
+            this.setState({
+                categoria: res.data
+            });
+        });            
   };
 
   render() {
@@ -71,6 +102,12 @@ class App extends Component {
                           createCategoria={this.createCategoria}
                           editCategoria={this.editCategoria}
                           categorias={this.state.categorias}
+
+                          createProduto={this.createProduto}
+                          loadProdutos={this.loadProdutos}
+                          readCategoria={this.readCategoria}
+                          produtos={this.state.produtos}
+                          categoria={this.state.categoria}
                         />} 
               } />
           </div>
