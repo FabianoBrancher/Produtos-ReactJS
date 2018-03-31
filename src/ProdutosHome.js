@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProdutosHome = () => (
     <div>
-        <h2> Produtos </h2>
+        <h2> Produtos :) </h2>
     </div>
 )
 
