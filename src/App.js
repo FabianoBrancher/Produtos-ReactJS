@@ -19,6 +19,9 @@ class App extends Component {
     // Binds Produto
     this.createProduto = this.createProduto.bind(this);
     this.loadProdutos = this.loadProdutos.bind(this);
+    this.removeProduto = this.removeProduto.bind(this);
+    this.readProduto = this.readProduto.bind(this);
+    this.editProduto = this.editProduto.bind(this);
 
     this.state = {
       categorias: [],
@@ -74,6 +77,18 @@ class App extends Component {
         });            
   };
 
+  removeProduto(produto) {
+    return this.props.api.deleteProduto(produto.id);
+  };
+
+  readProduto(id) {
+    return this.props.api.readProduto(id);
+  }
+
+  editProduto(produto) {
+    return this.props.api.editProduto(produto);
+  }
+
   render() {
     return (
       <Router>
@@ -108,6 +123,9 @@ class App extends Component {
                           readCategoria={this.readCategoria}
                           produtos={this.state.produtos}
                           categoria={this.state.categoria}
+                          removeProduto={this.removeProduto}
+                          readProduto={this.readProduto}
+                          editProduto={this.editProduto}
                         />} 
               } />
           </div>

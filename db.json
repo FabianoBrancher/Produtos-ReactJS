@@ -16,16 +16,6 @@
       "categoria": 2
     },
     {
-      "produto": "testando um novo produto de limpeza",
-      "categoria": "1",
-      "id": 4
-    },
-    {
-      "produto": "testando um novo produto de limpeza",
-      "categoria": "1",
-      "id": 5
-    },
-    {
       "produto": "Tesoura de Jardim",
       "categoria": "3",
       "id": 6
@@ -34,26 +24,6 @@
       "produto": "Maça Gala",
       "categoria": "2",
       "id": 7
-    },
-    {
-      "produto": "Novo produto limpeza com REDIRECT",
-      "categoria": "1",
-      "id": 8
-    },
-    {
-      "produto": "teste",
-      "categoria": "4",
-      "id": 9
-    },
-    {
-      "produto": "gasdfaf",
-      "categoria": "3",
-      "id": 10
-    },
-    {
-      "produto": "produto teste só da pauuuu",
-      "categoria": "4",
-      "id": 11
     },
     {
       "produto": "bombril",
@@ -66,9 +36,9 @@
       "id": 13
     },
     {
-      "produto": "produto de teste",
-      "categoria": "4",
-      "id": 14
+      "id": 14,
+      "produto": "Cup Noodles",
+      "categoria": "2"
     }
   ],
   "categorias": [
@@ -83,10 +53,6 @@
     {
       "categoria": "Utilidades",
       "id": 3
-    },
-    {
-      "id": 4,
-      "categoria": "testeerere"
     }
   ]
 }

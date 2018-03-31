@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Categoria extends Component {
     constructor(props) {
         super(props);
 
         this.loadData = this.loadData.bind(this);
+        this.renderProduto = this.renderProduto.bind(this);
 
         this.state = {
             produtos: [],
@@ -13,7 +15,6 @@ class Categoria extends Component {
         }
     }
     loadData(id) {
-        console.log(id);
         this.setState({ id });
         this.props.loadProdutos(id);
         this.props.readCategoria(id);
@@ -24,10 +25,6 @@ class Categoria extends Component {
         this.loadData(id);
     };
 
-    componentWillMount() {
-        console.log(this.props);
-    }
-
     componentWillReceiveProps(newProps) {
         if (newProps.match.params.catId !== this.state.id) {
             this.loadData(newProps.match.params.catId);
@@ -35,16 +32,23 @@ class Categoria extends Component {
     };
     renderProduto(produto) {
         return (
-            <p className="well" key={produto.id}>{produto.produto}</p>
+            <p className="well" key={produto.id}>{produto.produto}
+                <button onClick={() => 
+                    this.props.removeProduto(produto)
+                        .then((res) => this.loadData(this.props.match.params.catId))
+                } >Excluir</button>
+                <Link to={'/produtos/editar/'+produto.id}> Editar </Link>
+            </p>
         )
     };
     render() {
         return (
             <div>
                 <h1> {this.props.categoria.categoria}</h1>
-                <ul>
-                    {this.props.produtos.map(this.renderProduto)}
-                </ul>
+                {this.props.produtos.length === 0 && 
+                    <p className="alert alert-danger"> Nenhum produto </p>
+                }
+                {this.props.produtos.map(this.renderProduto)}
             </div>
         )
     };
